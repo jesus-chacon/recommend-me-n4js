@@ -1,8 +1,8 @@
 const Tools = {};
 
-Tools.response = (res, data) => {res.status(200).jsonp(data);};
+Tools.response = (res, data) => {res.status(200).jsonp({data});};
 
-Tools.errResponse = (res, err) => {res.status(500).jsonp(err);};
+Tools.errResponse = (res, err) => {res.status(422).jsonp({err});};
 
 Tools.manageResponse = (res, err, promise) => {
     promise.then(data => {
