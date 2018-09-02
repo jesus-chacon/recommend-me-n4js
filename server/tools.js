@@ -1,3 +1,5 @@
+const {validationResult} = require("express-validator/check");
+
 const Tools = {};
 
 Tools.response = (res, data) => {res.status(200).jsonp({data});};
@@ -23,6 +25,16 @@ Tools.log = (data) => {
 Tools.err = (data) => {
     if (process.env.DEBUG) {
         console.error(data);
+    }
+};
+
+Tools.checkErrRequest = (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        Tools.errResponse(res, {errors: errors.array()});
+    } else {
+        next();
     }
 };
 
