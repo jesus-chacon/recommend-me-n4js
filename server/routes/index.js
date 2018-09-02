@@ -10,20 +10,20 @@ const privateApiUrl = `${baseUrl}/private`;
 router.get("/", (req, res) => {
     req.body = {};
 
-    Tools.response(res, {data: "Echo"});
+    Tools.response(res, "Echo");
 });
 
 
 router.get(publicApiUrl, (req, res) => {
     req.body = {};
 
-    Tools.response(res, {data: "Echo"});
+    Tools.response(res, "Echo");
 });
 
 router.get(privateApiUrl, (req, res) => {
     req.body = {};
 
-    Tools.response(res, {data: "Echo"});
+    Tools.response(res, "Echo");
 });
 
 module.exports = router;
