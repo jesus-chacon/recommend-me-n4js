@@ -7,6 +7,8 @@ const baseUrl = "/api/v1";
 const publicApiUrl = `${baseUrl}/public`;
 const privateApiUrl = `${baseUrl}/private`;
 
+router.use(`${privateApiUrl}/users`, require("./users"));
+
 router.get("/", (req, res) => {
     req.body = {};
 
