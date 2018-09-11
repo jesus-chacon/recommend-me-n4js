@@ -48,4 +48,32 @@ describe("user.js", () => {
             assert(true);
         }
     });
+
+    it("Get user created", async () => {
+        const externalId = randomString.generate(16);
+
+        let response = await request(testingTools.loadOptionsLogued("POST", `${apiUrl}/private/users`, {
+            externalId
+        }));
+
+        testingTools.checkResponse(response);
+
+        response = await request(testingTools.loadOptionsLogued("GET", `${apiUrl}/private/users/${externalId}`));
+
+        testingTools.checkResponse(response);
+        assert.equal(response.data.externalId, externalId);
+    });
+
+    it("Error getting user not created", async () => {
+        const externalId = randomString.generate(10);
+
+        try {
+            let response = await request(testingTools.loadOptionsLogued("GET", `${apiUrl}/private/users/${externalId}`));
+
+            assert(response);
+            assert.ok(!!response.err);
+        } catch (e) {
+            assert(true);
+        }
+    });
 });
