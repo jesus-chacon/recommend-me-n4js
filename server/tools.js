@@ -6,6 +6,8 @@ Tools.response = (res, data) => {res.status(200).jsonp({data});};
 
 Tools.errResponse = (res, err) => {res.status(422).jsonp({err});};
 
+Tools.notFound = (res) => {res.status(404).jsonp({err: "Object not Found"});};
+
 Tools.manageResponse = (res, err, promise) => {
     promise.then(data => {
         Tools.response(res, data);
