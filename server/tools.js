@@ -1,4 +1,5 @@
 const {validationResult} = require("express-validator/check");
+const _ = require("lodash");
 
 const Tools = {};
 
@@ -38,6 +39,17 @@ Tools.checkErrRequest = (req, res, next) => {
     } else {
         next();
     }
+};
+
+Tools.parseObjectPropertiesToQuery = (obj) => {
+    let query = "";
+    const totalProps = Object.keys(obj).length;
+
+    _.forEach(Object.keys(obj), (key, index) => {
+        query += `${key}: $${key} ${(index == (totalProps - 1)) ? "" : ","}`;
+    });
+
+    return query;
 };
 
 module.exports = Tools;
