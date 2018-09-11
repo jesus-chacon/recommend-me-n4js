@@ -1,18 +1,21 @@
-const _ = require("lodash");
+const Tools = require("../tools");
 
 module.exports = (driver) => ({
     save: (userData) => {
         const session = driver.session();
         //"CREATE (a:Person {name: $name}) RETURN a"
-        let query = "CREATE (a:User {";
+        const query = `CREATE (u:User {${Tools.parseObjectPropertiesToQuery(userData)}}) RETURN u`;
 
-        const totalProps = Object.keys(userData).length;
+        return session.run(query, userData).then((result) => {
+            session.close();
 
-        _.forEach(Object.keys(userData), (key, index) => {
-            query += `${key}: $${key} ${(index == (totalProps - 1)) ? "" : ","}`;
+            const singleRecord = result.records[0];
+            const node = singleRecord.get(0);
+
+            return node.properties;
         });
-
-        query += "}) RETURN a";
+    },
+    getByExternalId: (externalId) => {
 
         return session.run(query, userData).then((result) => {
             session.close();
