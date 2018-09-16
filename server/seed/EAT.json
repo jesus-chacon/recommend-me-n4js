@@ -1,0 +1,54 @@
+[
+    {
+        "externalId": 1,
+        "food": "Burger"
+    },
+    {
+        "externalId": 1,
+        "food": "Pizza"
+    },
+    {
+        "externalId": 1,
+        "food": "Nachos"
+    },
+    {
+        "externalId": 2,
+        "food": "Burger"
+    },
+    {
+        "externalId": 2,
+        "food": "Pasta"
+    },
+    {
+        "externalId": 3,
+        "food": "Tortilla"
+    },
+    {
+        "externalId": 3,
+        "food": "Pasta"
+    },
+    {
+        "externalId": 3,
+        "food": "Burger"
+    },
+    {
+        "externalId": 4,
+        "food": "Burger"
+    },
+    {
+        "externalId": 6,
+        "food": "Pasta"
+    },
+    {
+        "externalId": 6,
+        "food": "Tortilla"
+    },
+    {
+        "externalId": 6,
+        "food": "Nachos"
+    },
+    {
+        "externalId": 6,
+        "food": "Burger"
+    }
+]

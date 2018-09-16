@@ -1,0 +1,32 @@
+[
+    {
+        "externalId": 1,
+        "name": "Jesús",
+        "age": 24
+    },
+    {
+        "externalId": 2,
+        "name": "Nico",
+        "age": 28
+    },
+    {
+        "externalId": 3,
+        "name": "Marco",
+        "age": 20
+    },
+    {
+        "externalId": 4,
+        "name": "Paco",
+        "age": 18
+    },
+    {
+        "externalId": 5,
+        "name": "Juan",
+        "age": 35
+    },
+    {
+        "externalId": 6,
+        "name": "Guillermo",
+        "age": 29
+    }
+]
