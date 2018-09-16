@@ -76,4 +76,18 @@ describe("user.js", () => {
             assert(true);
         }
     });
+
+    it("Create eat relation", async () => {
+        const externalId = randomString.generate(10);
+        const foodName = randomString.generate(4);
+
+        try {
+            let response = await request(testingTools.loadOptionsLogued("POST", `${apiUrl}/private/users/${externalId}?food=${foodName}`));
+
+            console.log(response);
+            assert(response);
+        } catch (e) {
+            assert(false);
+        }
+    });
 });
