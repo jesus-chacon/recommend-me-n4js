@@ -5,6 +5,8 @@ const save = (driver) => (userData) => {
     //"CREATE (a:Person {name: $name}) RETURN a"
     const query = `CREATE (u:User {${Tools.parseObjectPropertiesToQuery(userData)}}) RETURN u`;
 
+    userData.externalId = userData.externalId.toString();
+
     return session.run(query, userData).then((result) => {
         session.close();
 
