@@ -1,6 +1,11 @@
-module.exports = ({userRepository, foodRepository}) => async (externalId, foodName) => {
-    await userRepository.ensureUser({externalId});
-    await foodRepository.ensureFood(foodName);
+module.exports = ({userRepository, userValidator, foodRepository}) => async (externalId, foodName) => {
+    const existUser = await userValidator.existId(externalId);
 
-    return userRepository.matchFood(externalId, foodName);
+    if (!existUser) {
+        throw new Error("User not found to relate");
+    } else {
+        await foodRepository.ensureFood(foodName);
+
+        return userRepository.matchFood(externalId, foodName);
+    }
 };

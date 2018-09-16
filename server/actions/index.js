@@ -6,7 +6,7 @@ const {createFood} = require("./Food");
 module.exports = {
     createUser: createUser({userRepository, userValidator}),
     getUserByExternalId: getUserByExternalId({userRepository}),
-    eatFood: eatFood({userRepository, foodRepository}),
+    eatFood: eatFood({userRepository, userValidator, foodRepository}),
 
     createFood: createFood({foodRepository, foodValidator})
 };
