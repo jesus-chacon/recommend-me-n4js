@@ -55,8 +55,6 @@ const matchFood = (driver) => (externalId, foodName) => {
         else if (result.records.length == 0) return false;
         else {
             try {
-
-                console.log(result.records, result.records[0].get(0));
                 const singleRecord = result.records[0];
                 const node = singleRecord.get(0);
 
