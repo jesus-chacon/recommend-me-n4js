@@ -38,20 +38,6 @@ const getByExternalId = (driver) => (externalId) => {
     });
 };
 
-const ensureUser = (driver) => async (userData) => {
-    if (!userData.externalId) {
-        throw new Error("Not ensure user without externalId");
-    }
-
-    const user = await getByExternalId(driver)(userData.externalId);
-
-    if (!user) {
-        return save(driver)(userData);
-    } else {
-        return user;
-    }
-};
-
 const matchFood = (driver) => (externalId, foodName) => {
     const session = driver.session();
 
@@ -86,6 +72,5 @@ const matchFood = (driver) => (externalId, foodName) => {
 module.exports = (driver) => ({
     save: save(driver),
     getByExternalId: getByExternalId(driver),
-    ensureUser: ensureUser(driver),
     matchFood: matchFood(driver)
 });
